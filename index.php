@@ -42,7 +42,7 @@ if($_POST['METHOD']=='PUT'){
     $city=$_POST['city'];
     $country=$_POST['country'];
     $job=$_POST['job'];
-    $query="UPDATE contacts SET id='$id', name='$name', email='$email' , city='$city' , country='$country' , job='$job' WHERE id='$id'";
+    $query=`UPDATE contacts SET id='$id', name='$name', email='$email' , city='$city' , country='$country' , job='$job' WHERE id='$id'`;
     $resultado=metodoPut($query);
     echo json_encode($resultado);
     header("HTTP/1.1 200 OK");
@@ -52,7 +52,7 @@ if($_POST['METHOD']=='PUT'){
 if($_POST['METHOD']=='DELETE'){
     unset($_POST['METHOD']);
     $id=$_GET['id'];
-    $query="DELETE FROM frameworks WHERE id='$id'";
+    $query="DELETE FROM contacts WHERE id='$id'";
     $resultado=metodoDelete($query);
     echo json_encode($resultado);
     header("HTTP/1.1 200 OK");
